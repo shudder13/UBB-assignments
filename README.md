@@ -16,17 +16,17 @@
 * [Geometry](https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem2_MLR0014_ro_pablaga_2022_6723.pdf)
 
 ## 3<sup>rd</sup> semester
-* [Advanced Programming Methods](https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem3_MLR5008_ro_camelia_2022_7168.pdf) (Java, C#, Java streams, JavaFX, concurrency, metaprogramming)
+* [Advanced Programming Methods](https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem3_MLR5008_ro_camelia_2022_7168.pdf) (Java, C#, design patterns, Java streams, JavaFX, concurrency, metaprogramming, PostgreSQL, Windows Forms)
 * [Logic and Functional Programming](https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem3_MLR5009_ro_gabis_2022_6692.pdf) (Prolog, backtracking, recursive data structures, Lisp, mapping functions)
 * [Computer Networks](https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem3_MLR5002_ro_bufny_2022_6784.pdf) (TCP/IP protocol, sockets, concurrent servers, IP addressing, classes of IPv4 addresses, netmasks, gateway, ARP + RARP + DHCP protocols, subnetworking, NAT, VLANs, Cisco Packet Tracer, web servers)
 * [Probability Theory and Statistics](https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem3_MLR0031_ro_hanne_2022_6800.pdf) (Bayes Theorem, random variables, Matlab)
-* [Databases](https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem3_MLR5027_ro_dsuciu_2022_7088.pdf)
+* [Databases](https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem3_MLR5027_ro_dsuciu_2022_7088.pdf) (SQL)
 
 ## 4<sup>th</sup> semester
 * [Artificial Intelligence](https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem4_MLR5029_ro_lauras_2022_6728.pdf)
 * [Software Engineering](https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem4_MLR5011_ro_vladi_2022_7161.pdf) (UML diagrams)
 * [Web Programming](https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem4_MLR5015_ro_bufny_2022_6836.pdf) (HTML, CSS, JavaScript, HTTP protocol, GET + POST methods, cookies, jQuery, Ajax, LAMP stack, Apache, web security, SQL injection, XSS, CSRF, CMS, SEO)
-* [Database Management Systems](https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem4_MLR5028_ro_dsuciu_2022_7089.pdf) (ADO.NET, SQL Server)
+* [Database Management Systems](https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem4_MLR5028_ro_dsuciu_2022_7089.pdf) (ADO.NET + SQL Server)
 * [Systems for Design and Implementation](https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem4_MLR5013_ro_grigo_2022_6735.pdf)
 
 ## 5<sup>th</sup> semester
