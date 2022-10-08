@@ -3,9 +3,11 @@ package complex_expressions;
 import model.ComplexNumber;
 import model.Operation;
 
+import java.util.List;
+
 public class SubtractionComplexExpression extends ComplexExpression {
 
-    public SubtractionComplexExpression(ComplexNumber[] complexNumbers) {
+    public SubtractionComplexExpression(List<ComplexNumber> complexNumbers) {
         super(Operation.SUBTRACTION, complexNumbers);
     }
 

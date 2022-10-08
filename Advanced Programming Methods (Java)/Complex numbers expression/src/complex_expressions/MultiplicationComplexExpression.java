@@ -3,9 +3,11 @@ package complex_expressions;
 import model.ComplexNumber;
 import model.Operation;
 
+import java.util.List;
+
 public class MultiplicationComplexExpression extends ComplexExpression {
 
-    public MultiplicationComplexExpression(ComplexNumber[] complexNumbers) {
+    public MultiplicationComplexExpression(List<ComplexNumber> complexNumbers) {
         super(Operation.MULTIPLICATION, complexNumbers);
     }
 

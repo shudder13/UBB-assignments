@@ -56,4 +56,12 @@ public class ComplexNumber {
     public ComplexNumber conjugate() {
         return new ComplexNumber(this.getRealPart(), -this.getImaginaryPart());
     }
+
+    @Override
+    public String toString() {
+        if (imaginaryPart >= 0)
+            return realPart + " + " + imaginaryPart + " * i";
+        else
+            return realPart + " - " + -imaginaryPart + " * i";
+    }
 }
