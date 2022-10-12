@@ -5,7 +5,7 @@
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; using namespace std; int main() {<statement_list> <return_statement>}  
 **<statement_list>** ::= \<statement> | \<statement> <statement_list>  
 **<return_statement>** ::= return \<number>;  
-**\<statement>** ::= <declaration_statement> | <assignment_statement> | <io_statement> | | <control_flow_statement>  
+**\<statement>** ::= <declaration_statement> | <assignment_statement> | <io_statement> | <control_flow_statement>  
 **<declaration_statement>** ::= \<type> <id_list>;  
 **<assignment_statement>** ::= \<id> = \<expression>;  
 **<io_statement>** ::= <input_statement> | <output_statement>  
@@ -50,7 +50,11 @@ int main() {
 	perimeter = 2 * PI * radius;
 	area = PI * radius * radius;
 	
-	cout << "The perimeter of the circle is equal to " << perimeter << " and the area is equal to " << area << ".";
+	cout << "The perimeter of the circle is equal to ";
+	cout << perimeter;
+	cout << " and the area is equal to ";
+	cout << area;
+	cout << ".";
 	
 	return 0;
 }
@@ -76,7 +80,9 @@ int main() {
 			y = y - x;
 		}
 	}
-	cout << "The greatest common divisor of the two numbers is equal to " << x << ".";
+	cout << "The greatest common divisor of the two numbers is equal to ";
+	cout << x;
+	cout << ".";
 	return 0;
 }
 ```
@@ -97,7 +103,9 @@ int main() {
 		sum = sum + x;
 		i = i + 1;
 	}
-	cout << "The sum of the numbers is equal to " << sum << ".";
+	cout << "The sum of the numbers is equal to ";
+	cout << sum;
+	cout << ".";
 	return 0;
 }
 ```
