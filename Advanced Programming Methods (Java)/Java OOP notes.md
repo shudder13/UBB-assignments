@@ -5,6 +5,7 @@ If a data member is not initialized explicitly, it will have the implicit value 
 Several methods with the same name, but different signatures can be defined in a class. (signature = the number, type and order of formal parameters)  
 The transmission of parameters is done by value. Their value is copied onto the stack. For object type parameters and for arrays, this value is a reference. The information in the object or table can be modified.  
 Instance variables cannot be used in static methods (compilation error).  
+**Autoboxing** = the automatic conversion that the Java compiler makes between the primitive types and their corresponding object wrapper classes.  
 
 ## Constructors
 The constructor must have the same name as the class (case sensitive).  
@@ -53,6 +54,15 @@ An interface can extend another interface and add new methods.
 An interface can extend multiple interfaces.  
 If at least one abstract method is not defined in the class, then the class must be declared abstract.  
 A class can inherit at most one class, but can implement multiple interfaces.  
+
+## Generics
+Generic types are used to parameterize data types, parameters being also data types.  
+When creating instances of generic classes, primitive types cannot be used (int, byte, char, float, double), but associated classes (Integer, Byte, Character, Float, Double).  
+To create an array in a generic class, the array will have the Object type and when an element is requested, it will be cast explicitly.  
+The generic type of a generic method can be different from the generic type of the class in which the generic method is declared.  
+Attributes of generic classes cannot be static.  
+**Erasure**: In Java, a new class is not created for each instance of a generic class (with a different type). When compiling, the compiler "erases" information about the generic type and replaces each generic type variable with the type's upper bound (usually Object), and where needed inserts an explicit cast to the generic type (compatibility reasons).  
+
 
 ## Rules
 "Program to an interface, not to an implementation."  
