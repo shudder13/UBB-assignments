@@ -1,4 +1,4 @@
-from analyzer import Analyzer
+from model.analyzer import Analyzer
 
 
 if __name__ == '__main__':
