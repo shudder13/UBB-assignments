@@ -1,15 +1,15 @@
 from typing import Iterator
 from model.buffer import Buffer, BufferState
-
+from model.linear_table import LinearTable
 from model.character import Character
 
 
 class Analyzer:
     def __init__(self, source_code_filename: str, tokens_table_filename: str) -> None:
-        self.__source_code_filename = source_code_filename
+        self.__source_code_filename: str = source_code_filename
         self.__tokens_table: dict[int, str] = self.__read_tokens_table(tokens_table_filename)
-        self.__identifiers_table = []
-        self.__constants_table = []
+        self.__symbols_table: LinearTable = LinearTable()
+        self.__internal_form: list[dict[int, int]]
     
     def __read_tokens_table(self, tokens_table_filename: str) -> dict[int, str]:
         tokens_table: dict[int, str] = {}
