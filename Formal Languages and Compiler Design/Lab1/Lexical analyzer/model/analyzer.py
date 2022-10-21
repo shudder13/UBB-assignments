@@ -1,4 +1,4 @@
-from typing import Iterator
+from typing import Iterator, Tuple, Union
 from model.buffer import Buffer, BufferState
 from model.linear_table import LinearTable
 from model.character import Character
@@ -9,7 +9,7 @@ class Analyzer:
         self.__source_code_filename: str = source_code_filename
         self.__tokens_table: dict[int, str] = self.__read_tokens_table(tokens_table_filename)
         self.__symbols_table: LinearTable = LinearTable()
-        self.__internal_form: list[dict[int, int]]
+        self.__internal_form: list[Tuple[int, Union[int, None]]] = []
     
     def __read_tokens_table(self, tokens_table_filename: str) -> dict[int, str]:
         tokens_table: dict[int, str] = {}
@@ -27,18 +27,41 @@ class Analyzer:
                     yield Character(i, j, character)
     
     def __add_constant(self, constant: str) -> None:
-        print(f'Constant {constant}')
+        constant_code: int
+        if self.__symbols_table.exists(constant):
+            constant_code = self.__symbols_table.index(constant)
+        else:
+            constant_code = self.__symbols_table.add(constant)
+        self.__internal_form.append((1, constant_code))
 
     def __add_identifier(self, identifier: str) -> None:
-        print(f'Identifier {identifier}')
+        identifier_code: int
+        if self.__symbols_table.exists(identifier):
+            identifier_code = self.__symbols_table.index(identifier)
+        else:
+            identifier_code = self.__symbols_table.add(identifier)
+        self.__internal_form.append((0, identifier_code))
 
     def __add_keyword(self, keyword: str) -> None:
-        print(f'Keyword {keyword}')
+        # keyword is a value in the token table
+        keyword_code: int
+        for key, value in self.__tokens_table.items():
+            if value == keyword:
+                keyword_code = key
+                break
+        self.__internal_form.append((keyword_code, None))
 
     def __add_symbol(self, symbol: str) -> None:
-        print(f'Symbol {symbol}')
+        # symbol is a value in the token table
+        symbol_code: int
+        for key, value in self.__tokens_table.items():
+            if value == symbol:
+                symbol_code = key
+                break
+        self.__internal_form.append((symbol_code, None))
     
     def tokenize(self) -> list[str]:
+        self.__internal_form.clear()
         character_generator: Iterator[Character] = self.__get_next_character()
         buffer: Buffer = Buffer(self.__tokens_table)
         for character in character_generator:
@@ -73,3 +96,16 @@ class Analyzer:
                         raise Exception(f'Unexpected symbol on line {error_character.i}, column {error_character.j}.')
                 buffer.clear()
                 buffer.append(last_character_in_buffer)
+    
+    def write_symbols_table(self):
+        with open('data/symbols table.txt', 'w') as f:
+            for index, element in enumerate(self.__symbols_table.get_all()):
+                f.write(f'{index}\t{element}\n')
+
+    def write_internal_form(self):
+        with open('data/internal form.txt', 'w') as f:
+            for element in self.__internal_form:
+                if element[1] is None:
+                    f.write(f'{element[0]}\n')
+                else:
+                    f.write(f'{element[0]}\t{element[1]}\n')
