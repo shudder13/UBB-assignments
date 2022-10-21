@@ -1,7 +1,7 @@
 from typing import Iterator
-from buffer import Buffer, BufferState
+from model.buffer import Buffer, BufferState
 
-from character import Character
+from model.character import Character
 
 
 class Analyzer:

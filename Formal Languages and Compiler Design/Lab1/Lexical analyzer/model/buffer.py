@@ -1,5 +1,5 @@
 from enum import Enum, auto
-from character import Character
+from model.character import Character
 
 class BufferState(Enum):
     EMPTY = auto()
