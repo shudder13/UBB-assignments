@@ -47,7 +47,7 @@ public class UserInterface {
                     case "0":
                         return;
                 }
-                Thread.sleep(2000);
+                Thread.sleep(1000);
             }
             catch (Exception e) {
                 System.out.println(e.getMessage() + "\n");
@@ -81,10 +81,10 @@ public class UserInterface {
         System.out.println("User added successfully.\n");
     }
 
-    private void removeUser() {
+    private void removeUser() throws RepositoryException {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter the identifier of the user:");
+        System.out.print("Enter the identifier of the user: ");
         Integer userId = Integer.parseInt(scanner.nextLine());
         superService.removeUser(userId);
         System.out.println("User removed successfully.\n");

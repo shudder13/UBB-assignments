@@ -33,7 +33,11 @@ public class UserService {
         idCounter = getMaximumId() + 1;
         User user = new User(idCounter, firstName, lastName);
         userValidator.validate(user);
-        userRepository.save(user);
+        userRepository.add(user);
+    }
+
+    public void removeUser(Integer id) throws RepositoryException {
+        userRepository.remove(id);
     }
 
     public Collection<User> getUsers() {

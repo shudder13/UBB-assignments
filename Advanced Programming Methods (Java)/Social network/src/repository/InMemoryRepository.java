@@ -15,7 +15,7 @@ public abstract class InMemoryRepository<ID, E extends Entity<ID>> implements Re
     }
 
     @Override
-    public void save(E entity) throws RepositoryException {
+    public void add(E entity) throws RepositoryException {
         if (entity == null)
             throw new IllegalArgumentException("The entity must not be null.");
         if (entities.get(entity.getId()) != null)
@@ -41,8 +41,12 @@ public abstract class InMemoryRepository<ID, E extends Entity<ID>> implements Re
     }
 
     @Override
-    public void delete(ID id) {
-
+    public void remove(ID id) throws RepositoryException {
+        if (id == null)
+            throw new IllegalArgumentException("Identifier must not be null.");
+        if (entities.get(id) == null)
+            throw new RepositoryException("There is no such entity in the repository.");
+        entities.remove(id);
     }
 
     @Override

@@ -19,8 +19,8 @@ public class SuperService {
         userService.addUser(firstName, lastName);
     }
 
-    public void removeUser(Integer Id) {
-
+    public void removeUser(Integer id) throws RepositoryException {
+        userService.removeUser(id);
     }
 
     public Collection<User> getUsers() {
