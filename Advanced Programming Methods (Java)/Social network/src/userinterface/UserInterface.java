@@ -113,8 +113,13 @@ public class UserInterface {
         System.out.println("Friendship added successfully.\n");
     }
 
-    private void removeFriendship() {
-        // TODO
+    private void removeFriendship() throws RepositoryException {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the identifier of the friendship: ");
+        Integer friendshipId = Integer.parseInt(scanner.nextLine());
+        superService.removeFriendship(friendshipId);
+        System.out.println("Friendship removed successfully.\n");
     }
 
     private void displayFriendships() {

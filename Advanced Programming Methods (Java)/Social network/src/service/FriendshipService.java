@@ -37,6 +37,10 @@ public class FriendshipService {
         friendshipRepository.add(friendship);
     }
 
+    public void removeFriendship(Integer id) throws RepositoryException {
+        friendshipRepository.remove(id);
+    }
+
     public void removeFriendshipsOfUser(Integer userId) throws RepositoryException {
         Collection<Friendship> friendships = friendshipRepository.getAll();
         for (Friendship friendship : friendships)

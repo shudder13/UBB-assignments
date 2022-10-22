@@ -41,6 +41,6 @@ public class User implements Entity<Integer> {
 
     @Override
     public String toString() {
-        return id + ": " + firstName + " " + lastName;
+        return "User " + id + ": " + firstName + " " + lastName;
     }
 }

@@ -35,6 +35,10 @@ public class SuperService {
         friendshipService.addFriendship(firstUser, secondUser);
     }
 
+    public void removeFriendship(Integer id) throws RepositoryException {
+        friendshipService.removeFriendship(id);
+    }
+
     public Collection<Friendship> getFriendships() {
         return friendshipService.getFriendships();
     }

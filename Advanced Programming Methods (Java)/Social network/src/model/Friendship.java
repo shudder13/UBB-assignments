@@ -43,6 +43,6 @@ public class Friendship implements Entity<Integer> {
 
     @Override
     public String toString() {
-        return id + ": " + firstUser.toString() + " <-> " + secondUser.toString();
+        return "Friendship " + id + ": {" + firstUser.toString() + "} {" + secondUser.toString() + "}";
     }
 }
