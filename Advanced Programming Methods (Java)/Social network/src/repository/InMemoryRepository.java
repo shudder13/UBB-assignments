@@ -18,7 +18,7 @@ public abstract class InMemoryRepository<ID, E extends Entity<ID>> implements Re
     public void add(E entity) throws RepositoryException {
         if (entity == null)
             throw new IllegalArgumentException("The entity must not be null.");
-        if (entities.get(entity.getId()) != null)
+        if (entities.containsKey(entity.getId()) || entities.containsValue(entity))
             throw new RepositoryException("An entity with that identifier already exists.");
         entities.put(entity.getId(), entity);
     }

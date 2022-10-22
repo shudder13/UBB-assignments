@@ -2,6 +2,7 @@ package userinterface;
 
 import exceptions.RepositoryException;
 import exceptions.ValidationException;
+import model.Friendship;
 import model.User;
 import service.SuperService;
 
@@ -102,8 +103,14 @@ public class UserInterface {
         }
     }
 
-    private void addFriendship() {
-        // TODO
+    private void addFriendship() throws ValidationException, RepositoryException {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the identifier of the first user: ");
+        Integer firstUserId = Integer.parseInt(scanner.nextLine());
+        System.out.print("Enter the identifier of the second user: ");
+        Integer secondUserId = Integer.parseInt(scanner.nextLine());
+        superService.addFriendship(firstUserId, secondUserId);
+        System.out.println("Friendship added successfully.\n");
     }
 
     private void removeFriendship() {
@@ -111,7 +118,15 @@ public class UserInterface {
     }
 
     private void displayFriendships() {
-        // TODO
+        Collection<Friendship> friendships = superService.getFriendships();
+        if (friendships.isEmpty())
+            System.out.println("There are no friendships in the repository.\n");
+        else {
+            System.out.println("Friendships:");
+            for (Friendship friendship : friendships)
+                System.out.println(friendship.toString());
+            System.out.println();
+        }
     }
 
     private void displayNumberOfCommunities() {

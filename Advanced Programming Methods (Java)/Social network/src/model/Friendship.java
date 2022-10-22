@@ -31,11 +31,18 @@ public class Friendship implements Entity<Integer> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Friendship that = (Friendship) o;
-        return Objects.equals(id, that.id) && Objects.equals(firstUser, that.firstUser) && Objects.equals(secondUser, that.secondUser);
+        boolean same_order = firstUser.equals(that.firstUser) && secondUser.equals(that.secondUser);
+        boolean reverse_order = firstUser.equals(that.secondUser) && secondUser.equals(that.firstUser);
+        return Objects.equals(id, that.id) || same_order || reverse_order;
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(id, firstUser, secondUser);
+    }
+
+    @Override
+    public String toString() {
+        return id + ": " + firstUser.toString() + " <-> " + secondUser.toString();
     }
 }

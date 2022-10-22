@@ -11,7 +11,6 @@ import java.util.Collection;
 public class UserService {
     private final UserRepository userRepository;
     private final UserValidator userValidator;
-    private Integer idCounter;
 
     public UserService(UserRepository userRepository, UserValidator userValidator) {
         this.userRepository = userRepository;
@@ -30,7 +29,7 @@ public class UserService {
     }
 
     public void addUser(String firstName, String lastName) throws ValidationException, RepositoryException {
-        idCounter = getMaximumId() + 1;
+        Integer idCounter = getMaximumId() + 1;
         User user = new User(idCounter, firstName, lastName);
         userValidator.validate(user);
         userRepository.add(user);
@@ -38,6 +37,10 @@ public class UserService {
 
     public void removeUser(Integer id) throws RepositoryException {
         userRepository.remove(id);
+    }
+
+    public User getUser(Integer id) {
+        return userRepository.getOne(id);
     }
 
     public Collection<User> getUsers() {
