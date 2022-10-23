@@ -1,7 +1,7 @@
 package validator;
 
 import exceptions.ValidationException;
-import model.User;
+import model.entities.User;
 
 import static utils.Constants.*;
 

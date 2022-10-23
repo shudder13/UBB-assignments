@@ -2,8 +2,8 @@ package service;
 
 import exceptions.RepositoryException;
 import exceptions.ValidationException;
-import model.Friendship;
-import model.User;
+import model.entities.Friendship;
+import model.entities.User;
 import repository.FriendshipRepository;
 import validator.FriendshipValidator;
 

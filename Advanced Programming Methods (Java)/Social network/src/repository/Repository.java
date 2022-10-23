@@ -1,7 +1,7 @@
 package repository;
 
 import exceptions.RepositoryException;
-import model.Entity;
+import model.entities.Entity;
 
 import java.util.Collection;
 

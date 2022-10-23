@@ -4,10 +4,8 @@ out/
 !**/src/test/**/out/
 
 ### VS Code ###
-.vscode/
-
 .idea/
-*.iml
+.vscode/
 
 venv/
 __pycache__/

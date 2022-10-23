@@ -2,8 +2,8 @@ package userinterface;
 
 import exceptions.RepositoryException;
 import exceptions.ValidationException;
-import model.Friendship;
-import model.User;
+import model.entities.Friendship;
+import model.entities.User;
 import service.SuperService;
 
 import java.util.Collection;
@@ -135,6 +135,7 @@ public class UserInterface {
     }
 
     private void displayNumberOfCommunities() {
-        // TODO
+        Integer numberOfCommunities = superService.getNumberOfCommunities();
+        System.out.println("Numarul de comunitati este egal cu " + numberOfCommunities + ".");
     }
 }

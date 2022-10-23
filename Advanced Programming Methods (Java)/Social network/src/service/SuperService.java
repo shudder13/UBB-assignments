@@ -2,8 +2,9 @@ package service;
 
 import exceptions.RepositoryException;
 import exceptions.ValidationException;
-import model.Friendship;
-import model.User;
+import model.entities.Friendship;
+import model.entities.User;
+import model.network.Network;
 
 import java.util.Collection;
 
@@ -41,5 +42,10 @@ public class SuperService {
 
     public Collection<Friendship> getFriendships() {
         return friendshipService.getFriendships();
+    }
+
+    public Integer getNumberOfCommunities() {
+        Network network = new Network(userService.getUsers(), friendshipService.getFriendships());
+        return network.getNumberOfCommunities();
     }
 }

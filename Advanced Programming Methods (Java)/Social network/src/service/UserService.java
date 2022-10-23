@@ -2,7 +2,7 @@ package service;
 
 import exceptions.RepositoryException;
 import exceptions.ValidationException;
-import model.User;
+import model.entities.User;
 import repository.UserRepository;
 import validator.UserValidator;
 

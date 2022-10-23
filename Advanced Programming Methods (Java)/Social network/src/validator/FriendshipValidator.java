@@ -1,7 +1,7 @@
 package validator;
 
 import exceptions.ValidationException;
-import model.Friendship;
+import model.entities.Friendship;
 
 import static utils.Constants.ID_NOT_VALID;
 

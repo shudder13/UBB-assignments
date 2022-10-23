@@ -1,7 +1,6 @@
 package repository;
 
-import model.Entity;
-import model.Friendship;
+import model.entities.Friendship;
 
 public class FriendshipRepository extends InMemoryRepository<Integer, Friendship> {
 }

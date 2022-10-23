@@ -1,9 +1,6 @@
 package repository;
 
-import model.User;
-
-import java.util.Collection;
-import java.util.Map;
+import model.entities.User;
 
 public class UserRepository extends InMemoryRepository<Integer, User> {
 
