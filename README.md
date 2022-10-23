@@ -40,7 +40,7 @@
   </tr>
   <tr align="center">
     <td><a href="https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem2_MLR5006_ro_istvanc_2022_6722.pdf"><strong>Object-Priented Programming</strong></a></td>
-    <td>C++, FDD, TDD, layered architecture, UML diagrams, generic programming, polymorphism, inheritance, GUIs - Qt framework, design patterns, MVC pattern</td>
+    <td>C++, FDD, TDD, layered architecture, UML diagrams, generic programming, polymorphism, inheritance, GUIs - Qt framework, Observer pattern, MVC pattern</td>
   </tr>
   <tr align="center">
     <td><a href="https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem2_MLR5007_ro_rares_2022_6861.pdf"><strong>Operating Systems</strong></a></td>
@@ -68,11 +68,11 @@
   </tr>
   <tr align="center">
     <td><a href="https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem3_MLR5008_ro_camelia_2022_7168.pdf"><strong>Advanced Programming Methods</strong></a></td>
-    <td>Java, C#, design patterns, Java streams, Git, clean code, JavaFX + Scene Builder, concurrency, metaprogramming, PostgreSQL, Windows Forms</td>
+    <td>Java, C#, design patterns (factory, singleton, decorator, strategy, template), Java streams, Git, clean code, JavaFX + Scene Builder, concurrency, metaprogramming, PostgreSQL, Windows Forms</td>
   </tr>
   <tr align="center">
     <td><a href="https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem3_MLR5009_ro_gabis_2022_6692.pdf">Logic and Functional Programming</a></td>
-    <td>Prolog, backtracking, recursive data structures, Lisp, mapping functions</td>
+    <td>logic programming, Prolog, backtracking, recursive data structures, functional programming, Lisp, mapping functions</td>
   </tr>
   <tr align="center">
     <td><a href="https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem3_MLR5002_ro_bufny_2022_6784.pdf"><strong>Computer Networks</strong></a></td>
@@ -100,11 +100,11 @@
   </tr>
   <tr align="center">
     <td><a href="https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem4_MLR5011_ro_vladi_2022_7161.pdf"><strong>Software Engineering</strong></a></td>
-    <td>UML diagrams, Software Development Life Cycle</td>
+    <td>UML diagrams, StarUML, design patterns (facade, proxy, adapter, bridge, strategy, composite, abstract factory, command, state, singleton), Software Development Life Cycle</td>
   </tr>
   <tr align="center">
     <td><a href="https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem4_MLR5015_ro_bufny_2022_6836.pdf"><strong>Web Programming</strong></a></td>
-    <td>HTML, CSS, JavaScript, HTTP protocol, HTTP methods, cookies, jQuery, Ajax, LAMP stack, Apache, web security, SQL injection, XSS, CSRF, CMS, SEO</td>
+    <td>HTML, CSS, JavaScript, HTTP protocol, HTTP methods, cookies, jQuery, Ajax, LAMP stack, web security, SQL injection, XSS, CSRF, CMS, SEO</td>
   </tr>
   <tr align="center">
     <td><a href="https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem4_MLR5028_ro_dsuciu_2022_7089.pdf"><strong>Database Management Systems</strong></a></td>
@@ -124,23 +124,23 @@
   </tr>
   <tr align="center">
     <td><a href="https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem5_MLR5023_ro_dana_2022_6921.pdf"><strong>Formal Languages and Compiler Design</strong></a></td>
-    <td></td>
+    <td>specifying a programming language, (E)BNF, lexical analysis, finite automata</td>
   </tr>
   <tr align="center">
     <td><a href="https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem5_MLR5077_ro_vniculescu_2022_6808.pdf"><strong>Parallel and Distributed Programming</strong></a></td>
-    <td></td>
+    <td>parallel/concurrency/distributed programming, processes, threads</td>
   </tr>
   <tr align="center">
     <td><a href="https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem5_MLR5078_ro_ilazar_2022_6871.pdf"><strong>Mobile Application Programming</strong></a></td>
-    <td></td>
+    <td>Ionic framework + React library</td>
   </tr>
   <tr align="center">
     <td><a href="https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem5_MLR5067_ro_lauras_2022_6727.pdf"><strong>Intelligent Methods for Solving Real World Problems</strong></a></td>
-    <td></td>
+    <td>machine learning, deep learning, neural networks</td>
   </tr>
   <tr align="center">
     <td><a href="https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem5_MLR8114_ro_mihai-suciu_2022_6933.pdf"><strong>Software Security</strong></a></td>
-    <td></td>
+    <td>software vulnerabilities: memory vulnerabilities, C language vulnerabilities, UNIX/Windows vulnerabilities, web vulnerabilities (SQL injection, XSS, CSRF); techniques to avoid, detect and evaluate software vulnerabiltiies</td>
   </tr>
 </table>
 
