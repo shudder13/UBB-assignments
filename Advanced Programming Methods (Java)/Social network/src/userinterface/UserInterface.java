@@ -97,8 +97,7 @@ public class UserInterface {
             System.out.println("There are no users in the repository.\n");
         else {
             System.out.println("Users:");
-            for (User user : users)
-                System.out.println(user.toString());
+            users.forEach(System.out::println);
             System.out.println();
         }
     }
@@ -128,8 +127,7 @@ public class UserInterface {
             System.out.println("There are no friendships in the repository.\n");
         else {
             System.out.println("Friendships:");
-            for (Friendship friendship : friendships)
-                System.out.println(friendship.toString());
+            friendships.forEach(System.out::println);
             System.out.println();
         }
     }
