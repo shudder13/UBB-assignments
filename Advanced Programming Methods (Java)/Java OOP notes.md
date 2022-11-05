@@ -60,9 +60,14 @@ Generic types are used to parameterize data types, parameters being also data ty
 When creating instances of generic classes, primitive types cannot be used (int, byte, char, float, double), but associated classes (Integer, Byte, Character, Float, Double).  
 To create an array in a generic class, the array will have the Object type and when an element is requested, it will be cast explicitly.  
 The generic type of a generic method can be different from the generic type of the class in which the generic method is declared.  
-Attributes of generic classes cannot be static.  
+Generic attributes of generic classes cannot be static.  
 **Erasure**: In Java, a new class is not created for each instance of a generic class (with a different type). When compiling, the compiler "erases" information about the generic type and replaces each generic type variable with the type's upper bound (usually Object), and where needed inserts an explicit cast to the generic type (compatibility reasons).  
+If ChildType is a subtype (descendant class or subinterface) of ParentType, then a generic structure GenericStructure\<ChildType> is not a subtype of GenericStructure\<ParentType>.  
 
+## Hash vs. Tree vs. LinkedHash Map or Set
+**Hash**: stores its elements in a hash table; it is the most efficient implementation, but we have no guarantees on the order of traversal.  
+**Tree**: stores its elements in a red-black tree; elements are ordered based on their values; slower implementation.  
+**LinkedHash**: is implemented as a hash table. The difference between Hash and LinkedHash is that LinkedHash maintaints a doubly linked list over all its elements. Therefore, they remain in the order in which they were inserted.  
 
 ## Rules
 "Program to an interface, not to an implementation."  
