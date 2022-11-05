@@ -15,6 +15,8 @@ public class UserValidator implements Validator<User> {
             errors += "First name is not valid.\n";
         if (user.getLastName().equals(""))
             errors += "Last name is not valid.\n";
+        if (user.getEmail().equals(""))
+            errors += "Email is not valid.\n";
         if (!errors.equals(""))
             throw new ValidationException(errors.substring(0, errors.length() - 1));
     }

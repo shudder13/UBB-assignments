@@ -78,7 +78,9 @@ public class UserInterface {
         String firstName = scanner.nextLine();
         System.out.print("Enter last name: ");
         String lastName = scanner.nextLine();
-        superService.addUser(firstName, lastName);
+        System.out.print("Enter e-mail address: ");
+        String email = scanner.nextLine();
+        superService.addUser(firstName, lastName, email);
         System.out.println("User added successfully.\n");
     }
 

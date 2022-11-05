@@ -28,9 +28,9 @@ public class UserService {
         return maximumId;
     }
 
-    public void addUser(String firstName, String lastName) throws ValidationException, RepositoryException {
+    public void addUser(String firstName, String lastName, String email) throws ValidationException, RepositoryException {
         Integer idCounter = getMaximumId() + 1;
-        User user = new User(idCounter, firstName, lastName);
+        User user = new User(idCounter, firstName, lastName, email);
         userValidator.validate(user);
         userRepository.add(user);
     }

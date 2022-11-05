@@ -17,8 +17,8 @@ public class SuperService {
         this.friendshipService = friendshipService;
     }
 
-    public void addUser(String firstName, String lastName) throws ValidationException, RepositoryException {
-        userService.addUser(firstName, lastName);
+    public void addUser(String firstName, String lastName, String email) throws ValidationException, RepositoryException {
+        userService.addUser(firstName, lastName, email);
     }
 
     public void removeUser(Integer id) throws RepositoryException {
