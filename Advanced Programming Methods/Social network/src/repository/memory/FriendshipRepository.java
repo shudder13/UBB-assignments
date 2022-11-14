@@ -1,4 +1,4 @@
-package repository;
+package repository.memory;
 
 import model.entities.Friendship;
 
