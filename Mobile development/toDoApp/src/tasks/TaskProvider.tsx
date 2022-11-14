@@ -1,8 +1,9 @@
-import React, { useCallback, useEffect, useReducer } from "react";
+import React, { useCallback, useContext, useEffect, useReducer } from "react";
 import PropTypes from 'prop-types';
 import { getLogger } from "../core";
 import { TaskProps } from "./TaskProps";
 import { createTask, getTasks, newWebSocket, updateTask } from "./TaskAPI";
+import { AuthContext } from "../auth";
 
 const log = getLogger('TaskProvider');
 
@@ -48,7 +49,7 @@ const reducer: (state: TasksState, action: ActionProps) => TasksState =
             case SAVE_TASK_SUCCEEDED:
                 const tasks = [...(state.tasks || [])];
                 const task = payload.task;
-                const index = tasks.findIndex(tsk => tsk.id === task.id);
+                const index = tasks.findIndex(tsk => tsk._id === task.id);
                 if (index === -1)
                     tasks.splice(0, 0, task);
                 else
@@ -67,12 +68,13 @@ interface TaskProviderProps {
     children: PropTypes.ReactNodeLike
 }
 
-export const TaskProvider: React.FC<TaskProviderProps> = ({ children}) => {
+export const TaskProvider: React.FC<TaskProviderProps> = ({ children }) => {
+    const { token } = useContext(AuthContext);
     const [state, dispatch] = useReducer(reducer, initialState);
     const { tasks, fetching, fetchingError, saving, savingError } = state;
-    useEffect(getTasksEffect, []);
-    useEffect(wsEffect, []);
-    const saveTask = useCallback<SaveTaskFn>(saveTaskCallback, []);
+    useEffect(getTasksEffect, [token]);
+    useEffect(wsEffect, [token]);
+    const saveTask = useCallback<SaveTaskFn>(saveTaskCallback, [token]);
     const value = { tasks, fetching, fetchingError, saving, savingError, saveTask };
     log('returns');
     return (
@@ -89,10 +91,13 @@ export const TaskProvider: React.FC<TaskProviderProps> = ({ children}) => {
         }
 
         async function fetchTasks() {
+            if (!token?.trim()) {
+                return;
+            }
             try {
                 log('fetchTasks started');
                 dispatch( {type: FETCH_TASKS_STARTED});
-                const tasks = await getTasks();
+                const tasks = await getTasks(token);
                 log('fetchTasks succeded');
                 if (!cancelled) {
                     dispatch({ type: FETCH_TASKS_SUCCEEDED, payload: { tasks }});
@@ -108,7 +113,7 @@ export const TaskProvider: React.FC<TaskProviderProps> = ({ children}) => {
         try {
             log('saveTask started');
             dispatch({ type: SAVE_TASK_STARTED });
-            const savedTask = await (task.id ? updateTask(task) : createTask(task));
+            const savedTask = await (task._id ? updateTask(token, task) : createTask(token, task));
             log('saveTask succeeded');
             dispatch({ type: SAVE_TASK_SUCCEEDED, payload: { task: savedTask }});
         } catch (error) {
@@ -120,20 +125,23 @@ export const TaskProvider: React.FC<TaskProviderProps> = ({ children}) => {
     function wsEffect() {
         let cancelled = false;
         log('wsEffect connecting');
-        const closeWebSocket = newWebSocket(message => {
-            if (cancelled) {
-                return;
-            }
-            const { event, payload: { task }} = message;
-            log(`ws message, task ${event}`);
-            if (event === 'created' || event === 'updated') {
-                dispatch({ type: SAVE_TASK_SUCCEEDED, payload: { task } });
-            }
-        });
+        let closeWebSocket: () => void;
+        if (token?.trim()) {
+            closeWebSocket = newWebSocket(token, message => {
+                if (cancelled) {
+                  return;
+                }
+                const { type, payload: item } = message;
+                log(`ws message, task ${type}`);
+                if (type === 'created' || type === 'updated') {
+                  dispatch({ type: SAVE_TASK_SUCCEEDED, payload: { item } });
+                }
+              });
+        }
         return () => {
             log('wsEffect disconnecting');
             cancelled = true;
-            closeWebSocket();
+            closeWebSocket?.();
         }
     }
 };

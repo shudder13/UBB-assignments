@@ -20,7 +20,7 @@ const TaskEdit: React.FC<TaskEditProps> = ({ history, match }) => {
     useEffect(() => {
         log('useEffect');
         const routeId = match.params.id || '';
-        const task = tasks?.find(task => task.id === routeId);
+        const task = tasks?.find(task => task._id === routeId);
         setTask(task);
         if (task) {
             setText(task.text);

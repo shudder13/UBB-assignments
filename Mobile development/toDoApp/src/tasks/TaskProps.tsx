@@ -1,5 +1,5 @@
 export interface TaskProps {
-    id?: string;
+    _id?: string;
     text: string;
     date: Date;
     active: Boolean;

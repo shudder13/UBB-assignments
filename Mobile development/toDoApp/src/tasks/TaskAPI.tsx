@@ -1,57 +1,33 @@
 import axios from 'axios';
-import { getLogger } from "../core";
+import { authConfig, baseURL, getLogger, withLogs } from '../core';
 import { TaskProps } from "./TaskProps";
 
-const log = getLogger('TaskAPI');
-const baseURL = 'localhost:3000';
-const taskURL = `http://${baseURL}/task`;
+const taskURL = `http://${baseURL}/api/task`;
 
-interface ResponseProps<T> {
-    data: T;
+export const getTasks: (token: string) => Promise<TaskProps[]> = token => {
+    return withLogs(axios.get(taskURL, authConfig(token)), 'getTasks');
 }
 
-function withLogs<T>(promise: Promise<ResponseProps<T>>, fnName: string): Promise<T> {
-    log(`${fnName} started`);
-    return promise
-        .then(res => {
-            log(`${fnName} succeeded`);
-            return Promise.resolve(res.data);
-        })
-        .catch(err => {
-            log(`${fnName} failed`);
-            return Promise.reject(err);
-        });
+export const createTask: (token: string, task: TaskProps) => Promise<TaskProps[]> = (token, task) => {
+    return withLogs(axios.post(taskURL, task, authConfig(token)), 'createTask');
 }
 
-const config = {
-    headers: {
-        'Content-Type': 'application/json'
-    }
-};
-
-export const getTasks: () => Promise<TaskProps[]> = () => {
-    return withLogs(axios.get(taskURL, config), 'getTasks');
-}
-
-export const createTask: (task: TaskProps) => Promise<TaskProps[]> = task => {
-    return withLogs(axios.post(taskURL, task, config), 'createTask');
-}
-
-export const updateTask: (task: TaskProps) => Promise<TaskProps[]> = task => {
-    return withLogs(axios.put(`${taskURL}/${task.id}`, task, config), 'updateTask');
+export const updateTask: (token: string, task: TaskProps) => Promise<TaskProps[]> = (token, task) => {
+    return withLogs(axios.put(`${taskURL}/${task._id}`, task, authConfig(token)), 'updateTask');
 }
 
 interface MessageData {
-    event: string;
-    payload: {
-        task: TaskProps;
-    };
+    type: string;
+    payload: TaskProps;
 }
 
-export const newWebSocket = (onMessage: (data: MessageData) => void) => {
-    const ws = new WebSocket(`ws://${baseURL}`)
+const log = getLogger('ws');
+
+export const newWebSocket = (token: string, onMessage: (data: MessageData) => void) => {
+    const ws = new WebSocket(`ws://${baseURL}`);
     ws.onopen = () => {
         log('web socket onopen');
+        ws.send(JSON.stringify({ type: 'authorization', payload: { token }}));
     };
     ws.onclose = () => {
         log('web socket onclose');

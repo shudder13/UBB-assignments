@@ -22,8 +22,8 @@ const TaskList: React.FC<RouteComponentProps> = ({ history }) => {
                 <IonLoading isOpen={fetching} message="Fetching tasks" />
                 {tasks && (
                     <IonList>
-                        {tasks.map(({ id, text, date, active }) =>
-                        <Task key={id} id={id} text={text} date={date} active={active} onEdit={id => history.push(`/task/${id}`)} />)}
+                        {tasks.map(({ _id, text, date, active }) =>
+                        <Task key={_id} _id={_id} text={text} date={date} active={active} onEdit={id => history.push(`/task/${id}`)} />)}
                     </IonList>
                 )}
                 {fetchingError && (

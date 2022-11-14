@@ -3,14 +3,14 @@ import React, { useCallback } from "react";
 import { TaskProps } from "./TaskProps";
 
 interface TaskPropsExt extends TaskProps {
-    onEdit: (id?: string) => void;
+    onEdit: (_id?: string) => void;
 }
 
-const Task: React.FC<TaskPropsExt> = ({id, text, date, active, onEdit }) => {
-    const handleEdit = useCallback(() => onEdit(id), [id, onEdit]);
+const Task: React.FC<TaskPropsExt> = ({_id, text, date, active, onEdit }) => {
+    const handleEdit = useCallback(() => onEdit(_id), [_id, onEdit]);
     return (
         <IonItem onClick={handleEdit}>
-            <IonLabel>Task: {text}, Date: {date.toString()}, active: {String(active)}</IonLabel>
+            <IonLabel>Task: {text}, Date: {Date().toString()}, active: {String(active)}</IonLabel>
         </IonItem>
     );
 };
