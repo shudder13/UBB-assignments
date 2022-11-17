@@ -6,6 +6,8 @@ import model.entities.Friendship;
 import model.entities.User;
 import service.SuperService;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.Scanner;
 
@@ -71,7 +73,7 @@ public class UserInterface {
                 """);
     }
 
-    private void addUser() throws ValidationException, RepositoryException {
+    private void addUser() throws ValidationException, RepositoryException, IOException {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter first name: ");
@@ -84,7 +86,7 @@ public class UserInterface {
         System.out.println("User added successfully.\n");
     }
 
-    private void removeUser() throws RepositoryException {
+    private void removeUser() throws RepositoryException, IOException {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter the identifier of the user: ");
@@ -93,7 +95,7 @@ public class UserInterface {
         System.out.println("User removed successfully.\n");
     }
 
-    private void displayUsers() {
+    private void displayUsers() throws RepositoryException, IOException {
         Collection<User> users = superService.getUsers();
         if (users.isEmpty())
             System.out.println("There are no users in the repository.\n");
@@ -104,7 +106,7 @@ public class UserInterface {
         }
     }
 
-    private void addFriendship() throws ValidationException, RepositoryException {
+    private void addFriendship() throws ValidationException, RepositoryException, IOException {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the identifier of the first user: ");
         Integer firstUserId = Integer.parseInt(scanner.nextLine());
@@ -114,7 +116,7 @@ public class UserInterface {
         System.out.println("Friendship added successfully.\n");
     }
 
-    private void removeFriendship() throws RepositoryException {
+    private void removeFriendship() throws RepositoryException, IOException {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter the identifier of the friendship: ");
@@ -123,7 +125,7 @@ public class UserInterface {
         System.out.println("Friendship removed successfully.\n");
     }
 
-    private void displayFriendships() {
+    private void displayFriendships() throws RepositoryException, IOException {
         Collection<Friendship> friendships = superService.getFriendships();
         if (friendships.isEmpty())
             System.out.println("There are no friendships in the repository.\n");
@@ -134,7 +136,7 @@ public class UserInterface {
         }
     }
 
-    private void displayNumberOfCommunities() {
+    private void displayNumberOfCommunities() throws RepositoryException, IOException {
         Integer numberOfCommunities = superService.getNumberOfCommunities();
         System.out.println("Numarul de comunitati este egal cu " + numberOfCommunities + ".");
     }

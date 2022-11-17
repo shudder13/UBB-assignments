@@ -1,8 +1,11 @@
-package repository;
+package repository.memory;
 
 import exceptions.RepositoryException;
 import model.entities.Entity;
+import repository.Repository;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,7 +18,7 @@ public abstract class InMemoryRepository<ID, E extends Entity<ID>> implements Re
     }
 
     @Override
-    public void add(E entity) throws RepositoryException {
+    public void add(E entity) throws RepositoryException, IOException {
         if (entity == null)
             throw new IllegalArgumentException("The entity must not be null.");
         if (entities.containsKey(entity.getId()) || entities.containsValue(entity))
@@ -24,14 +27,14 @@ public abstract class InMemoryRepository<ID, E extends Entity<ID>> implements Re
     }
 
     @Override
-    public E getOne(ID id) {
+    public E getOne(ID id) throws RepositoryException, IOException {
         if (id == null)
             throw new IllegalArgumentException("The identifier must not be null.");
         return entities.get(id);
     }
 
     @Override
-    public Collection<E> getAll() {
+    public Collection<E> getAll() throws RepositoryException, IOException {
         return entities.values();
     }
 
@@ -41,7 +44,7 @@ public abstract class InMemoryRepository<ID, E extends Entity<ID>> implements Re
     }
 
     @Override
-    public void remove(ID id) throws RepositoryException {
+    public void remove(ID id) throws RepositoryException, IOException {
         if (id == null)
             throw new IllegalArgumentException("Identifier must not be null.");
         if (entities.get(id) == null)

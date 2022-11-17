@@ -4,23 +4,24 @@ import exceptions.RepositoryException;
 import exceptions.ValidationException;
 import model.entities.Friendship;
 import model.entities.User;
-import repository.FriendshipRepository;
+import repository.file.FriendshipFileRepository;
 import validator.FriendshipValidator;
 
+import java.io.IOException;
 import java.util.Collection;
 import java.util.Objects;
 
 public class FriendshipService {
-    private final FriendshipRepository friendshipRepository;
+    private final FriendshipFileRepository friendshipFileRepository;
     private final FriendshipValidator friendshipValidator;
 
-    public FriendshipService(FriendshipRepository friendshipRepository, FriendshipValidator friendshipValidator) {
-        this.friendshipRepository = friendshipRepository;
+    public FriendshipService(FriendshipFileRepository friendshipFileRepository, FriendshipValidator friendshipValidator) {
+        this.friendshipFileRepository = friendshipFileRepository;
         this.friendshipValidator = friendshipValidator;
     }
 
-    private Integer getMaximumId() {
-        Collection<Friendship> friendships = friendshipRepository.getAll();
+    private Integer getMaximumId() throws RepositoryException, IOException {
+        Collection<Friendship> friendships = friendshipFileRepository.getAll();
         if (friendships.isEmpty())
             return -1;
         Integer maximumId = 0;
@@ -30,28 +31,28 @@ public class FriendshipService {
         return maximumId;
     }
 
-    public void addFriendship(User firstUser, User secondUser) throws ValidationException, RepositoryException {
+    public void addFriendship(User firstUser, User secondUser) throws ValidationException, RepositoryException, IOException {
         Integer idCounter = getMaximumId() + 1;
         Friendship friendship = new Friendship(idCounter, firstUser, secondUser);
         friendshipValidator.validate(friendship);
-        friendshipRepository.add(friendship);
+        friendshipFileRepository.add(friendship);
     }
 
-    public void removeFriendship(Integer id) throws RepositoryException {
-        friendshipRepository.remove(id);
+    public void removeFriendship(Integer id) throws RepositoryException, IOException {
+        friendshipFileRepository.remove(id);
     }
 
-    public void removeFriendshipsOfUser(Integer userId) throws RepositoryException {
-        Collection<Friendship> friendships = friendshipRepository.getAll();
+    public void removeFriendshipsOfUser(Integer userId) throws RepositoryException, IOException {
+        Collection<Friendship> friendships = friendshipFileRepository.getAll();
         for (Friendship friendship : friendships)
             if (Objects.equals(friendship.getFirstUser().getId(), userId) || Objects.equals(friendship.getSecondUser().getId(), userId)) {
-                friendshipRepository.remove(friendship.getId());
+                friendshipFileRepository.remove(friendship.getId());
                 removeFriendshipsOfUser(userId);
                 break;
             }
     }
 
-    public Collection<Friendship> getFriendships() {
-        return friendshipRepository.getAll();
+    public Collection<Friendship> getFriendships() throws RepositoryException, IOException {
+        return friendshipFileRepository.getAll();
     }
 }
