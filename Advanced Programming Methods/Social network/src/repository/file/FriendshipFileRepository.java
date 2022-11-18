@@ -10,8 +10,9 @@ public class FriendshipFileRepository extends FileRepository<Integer, Friendship
     private final UserFileRepository userFileRepository;
 
     public FriendshipFileRepository(String fileName, UserFileRepository userFileRepository) throws IOException, RepositoryException {
-        super(fileName);
+        super(fileName, false);
         this.userFileRepository = userFileRepository;
+        super.loadData();
     }
 
     @Override

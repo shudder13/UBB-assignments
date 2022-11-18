@@ -13,16 +13,17 @@ import java.util.Scanner;
 public abstract class FileRepository<ID, E extends Entity<ID>> extends InMemoryRepository<ID, E> {
     private final String fileName;
 
-    public FileRepository(String fileName) throws IOException, RepositoryException {
+    public FileRepository(String fileName, boolean loadDataInConstructor) throws IOException, RepositoryException {
         this.fileName = fileName;
-        loadData();
+        if (loadDataInConstructor)
+            loadData();
     }
 
     public abstract E extractEntity(List<String> attributes) throws RepositoryException, IOException;
 
     public abstract String createEntityAsString(E entity);
 
-    private void loadData() throws IOException, RepositoryException {
+    protected void loadData() throws IOException, RepositoryException {
         super.clear();
         File file = new File(fileName);
         Scanner scanner = new Scanner(file);

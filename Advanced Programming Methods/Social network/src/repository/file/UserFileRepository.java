@@ -8,7 +8,7 @@ import java.util.List;
 
 public class UserFileRepository extends FileRepository<Integer, User> {
     public UserFileRepository(String fileName) throws IOException, RepositoryException {
-        super(fileName);
+        super(fileName, true);
     }
 
     @Override
