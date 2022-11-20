@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="data">
+      <UniqueIdentifier>{fa253225-e549-452f-9f5b-5d8bf30f555c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\0">
+      <UniqueIdentifier>{c77c4307-d06f-49f7-95cb-2e040b69ca3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\1">
+      <UniqueIdentifier>{f21aba02-ea28-4c36-9359-5207fb0b1866}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\2">
+      <UniqueIdentifier>{ab44582e-d30a-4b29-a7b0-08aafb7df2c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\3">
+      <UniqueIdentifier>{60eca35c-03f6-49d0-a2a5-266f1f3cdf1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\4">
+      <UniqueIdentifier>{c11a77a2-0fac-4161-9b53-a12423116fe4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C++.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="barrier.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="data\0\image.txt">
+      <Filter>data\0</Filter>
+    </Text>
+    <Text Include="data\0\kernel.txt">
+      <Filter>data\0</Filter>
+    </Text>
+    <Text Include="data\1\image.txt">
+      <Filter>data\1</Filter>
+    </Text>
+    <Text Include="data\1\kernel.txt">
+      <Filter>data\1</Filter>
+    </Text>
+    <Text Include="data\2\image.txt">
+      <Filter>data\2</Filter>
+    </Text>
+    <Text Include="data\2\kernel.txt">
+      <Filter>data\2</Filter>
+    </Text>
+    <Text Include="data\3\image.txt">
+      <Filter>data\3</Filter>
+    </Text>
+    <Text Include="data\3\kernel.txt">
+      <Filter>data\3</Filter>
+    </Text>
+    <Text Include="data\4\image.txt">
+      <Filter>data\4</Filter>
+    </Text>
+    <Text Include="data\4\kernel.txt">
+      <Filter>data\4</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

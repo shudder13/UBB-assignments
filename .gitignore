@@ -9,3 +9,9 @@ out/
 
 venv/
 __pycache__/
+
+### Visual Studio ###
+*.user
+x64/
+x86/
+.vs/
