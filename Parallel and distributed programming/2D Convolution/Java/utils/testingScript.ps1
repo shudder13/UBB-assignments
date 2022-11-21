@@ -16,7 +16,7 @@ $average = $sum / $i
 Write-Host "Average time execution:" $average
 
 # Create .csv file
-if (!(Test-Path out.csv)){
+if (!(Test-Path out.csv)) {
     New-Item out.csv -ItemType File
     # Write data in .csv
     Set-Content out.csv 'Data file index,Number of threads,Execution time (ms)'
