@@ -23,4 +23,4 @@ if (!(Test-Path outC.csv)) {
 }
 
 # Append
-Add-Content outC.csv "$($args[1]),$($args[2]),$($media)"
+Add-Content outC.csv "$($args[1]),$($args[2]),$($average)"
