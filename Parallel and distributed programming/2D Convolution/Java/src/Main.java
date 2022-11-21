@@ -47,7 +47,7 @@ public class Main {
     }
 
     public static void main(String[] args) throws FileNotFoundException, InterruptedException {
-        float[][] image = readMatrix(MATRIX_FILENAME), kernel = readMatrix(KERNEL_FILENAME);
+        float[][] image = readMatrix(IMAGE_FILENAME), kernel = readMatrix(KERNEL_FILENAME);
         int imageRows = image.length, imageColumns = image[0].length;
         int kernelRows = kernel.length, kernelColumns = kernel[0].length;
 
