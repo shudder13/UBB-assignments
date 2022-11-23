@@ -1,4 +1,6 @@
 from typing import Iterator, Tuple, Union
+
+from utils.constants import INTERNAL_FORM_FILENAME, SYMBOLS_TABLE_FILENAME
 from model.buffer import Buffer, BufferState
 from model.linear_table import LinearTable
 from model.character import Character
@@ -98,12 +100,12 @@ class Analyzer:
                 buffer.append(last_character_in_buffer)
     
     def write_symbols_table(self):
-        with open('data/symbols table.txt', 'w') as f:
+        with open(SYMBOLS_TABLE_FILENAME, 'w') as f:
             for index, element in enumerate(self.__symbols_table.get_all()):
                 f.write(f'{index}\t{element}\n')
 
     def write_internal_form(self):
-        with open('data/internal form.txt', 'w') as f:
+        with open(INTERNAL_FORM_FILENAME, 'w') as f:
             for element in self.__internal_form:
                 if element[1] is None:
                     f.write(f'{element[0]}\n')
