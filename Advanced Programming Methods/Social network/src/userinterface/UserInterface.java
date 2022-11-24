@@ -6,7 +6,6 @@ import model.entities.Friendship;
 import model.entities.User;
 import service.SuperService;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Scanner;
@@ -95,7 +94,7 @@ public class UserInterface {
         System.out.println("User removed successfully.\n");
     }
 
-    private void displayUsers() throws RepositoryException, IOException {
+    private void displayUsers() {
         Collection<User> users = superService.getUsers();
         if (users.isEmpty())
             System.out.println("There are no users in the repository.\n");
@@ -116,7 +115,7 @@ public class UserInterface {
         System.out.println("Friendship added successfully.\n");
     }
 
-    private void removeFriendship() throws RepositoryException, IOException {
+    private void removeFriendship() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter the identifier of the friendship: ");

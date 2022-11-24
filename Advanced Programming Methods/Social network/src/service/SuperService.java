@@ -27,7 +27,7 @@ public class SuperService {
         userService.removeUser(id);
     }
 
-    public Collection<User> getUsers() throws RepositoryException, IOException {
+    public Collection<User> getUsers() {
         return userService.getUsers();
     }
 
@@ -37,7 +37,7 @@ public class SuperService {
         friendshipService.addFriendship(firstUser, secondUser);
     }
 
-    public void removeFriendship(Integer id) throws RepositoryException, IOException {
+    public void removeFriendship(Integer id) {
         friendshipService.removeFriendship(id);
     }
 

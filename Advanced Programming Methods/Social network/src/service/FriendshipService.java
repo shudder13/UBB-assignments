@@ -5,10 +5,10 @@ import exceptions.ValidationException;
 import model.entities.Friendship;
 import model.entities.User;
 import repository.database.FriendshipDbRepository;
-import repository.file.FriendshipFileRepository;
 import validator.FriendshipValidator;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -34,12 +34,12 @@ public class FriendshipService {
 
     public void addFriendship(User firstUser, User secondUser) throws ValidationException, RepositoryException, IOException {
         Integer idCounter = getMaximumId() + 1;
-        Friendship friendship = new Friendship(idCounter, firstUser, secondUser);
+        Friendship friendship = new Friendship(idCounter, firstUser, secondUser, LocalDateTime.now());
         friendshipValidator.validate(friendship);
         friendshipDbRepository.add(friendship);
     }
 
-    public void removeFriendship(Integer id) throws RepositoryException, IOException {
+    public void removeFriendship(Integer id) {
         friendshipDbRepository.remove(id);
     }
 

@@ -1,7 +1,6 @@
 package repository.database;
 
 import exceptions.RepositoryException;
-import model.entities.Friendship;
 import model.entities.User;
 import repository.Repository;
 
@@ -37,7 +36,7 @@ public class UserDbRepository implements Repository<Integer, User> {
     }
 
     @Override
-    public User getOne(Integer id) throws RepositoryException, IOException {
+    public User getOne(Integer id) {
         String SQLCommand = "SELECT * FROM users WHERE id = ?";
         try (
                 Connection connection = DriverManager.getConnection(url, username, password);
@@ -58,7 +57,7 @@ public class UserDbRepository implements Repository<Integer, User> {
     }
 
     @Override
-    public Collection<User> getAll() throws RepositoryException, IOException {
+    public Collection<User> getAll() {
         Collection<User> users = new ArrayList<>();
         String SQLCommand = "SELECT * FROM users";
         try (
@@ -82,11 +81,11 @@ public class UserDbRepository implements Repository<Integer, User> {
 
     @Override
     public void update(User entity) {
-
+        // TODO
     }
 
     @Override
-    public void remove(Integer id) throws RepositoryException, IOException {
+    public void remove(Integer id) {
         String SQLCommand = "DELETE FROM users WHERE id = ?";
         try (
                 Connection connection = DriverManager.getConnection(url, username, password);

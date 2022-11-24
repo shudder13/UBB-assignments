@@ -4,7 +4,6 @@ import exceptions.RepositoryException;
 import exceptions.ValidationException;
 import model.entities.User;
 import repository.database.UserDbRepository;
-import repository.file.UserFileRepository;
 import validator.UserValidator;
 
 import java.io.IOException;
@@ -19,7 +18,7 @@ public class UserService {
         this.userValidator = userValidator;
     }
 
-    private Integer getMaximumId() throws RepositoryException, IOException {
+    private Integer getMaximumId() {
         Collection<User> users = userDbRepository.getAll();
         if (users.isEmpty())
             return -1;
@@ -37,15 +36,15 @@ public class UserService {
         userDbRepository.add(user);
     }
 
-    public void removeUser(Integer id) throws RepositoryException, IOException {
+    public void removeUser(Integer id) {
         userDbRepository.remove(id);
     }
 
-    public User getUser(Integer id) throws RepositoryException, IOException {
+    public User getUser(Integer id) {
         return userDbRepository.getOne(id);
     }
 
-    public Collection<User> getUsers() throws RepositoryException, IOException {
+    public Collection<User> getUsers() {
         return userDbRepository.getAll();
     }
 }

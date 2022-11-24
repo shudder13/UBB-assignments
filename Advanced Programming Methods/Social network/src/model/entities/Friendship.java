@@ -1,16 +1,19 @@
 package model.entities;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Friendship implements Entity<Integer> {
     private final Integer id;
     private final User firstUser;
     private final User secondUser;
+    private final LocalDateTime friendsFrom;
 
-    public Friendship(Integer id, User firstUser, User secondUser) {
+    public Friendship(Integer id, User firstUser, User secondUser, LocalDateTime friendsFrom) {
         this.id = id;
         this.firstUser = firstUser;
         this.secondUser = secondUser;
+        this.friendsFrom = friendsFrom;
     }
 
     @Override
@@ -26,6 +29,10 @@ public class Friendship implements Entity<Integer> {
         return secondUser;
     }
 
+    public LocalDateTime getFriendsFrom() {
+        return friendsFrom;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -38,11 +45,11 @@ public class Friendship implements Entity<Integer> {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstUser, secondUser);
+        return Objects.hash(id, firstUser, secondUser, friendsFrom);
     }
 
     @Override
     public String toString() {
-        return "Friendship " + id + ": {" + firstUser.toString() + "} {" + secondUser.toString() + "}";
+        return "Friendship " + id + ": {" + firstUser.toString() + "} {" + secondUser.toString() + "} since " + friendsFrom.toString();
     }
 }
