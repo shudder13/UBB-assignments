@@ -1,4 +1,6 @@
 import exceptions.RepositoryException;
+import repository.database.FriendshipDbRepository;
+import repository.database.UserDbRepository;
 import repository.file.FriendshipFileRepository;
 import repository.file.UserFileRepository;
 import service.FriendshipService;
@@ -13,12 +15,12 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws RepositoryException, IOException {
-        UserFileRepository userFileRepository = new UserFileRepository(Constants.USERS_FILENAME);
+        UserDbRepository userDbRepository = new UserDbRepository(Constants.DATABASE_URL, Constants.DATABASE_USERNAME, Constants.DATABASE_PASSWORD);
         UserValidator userValidator = new UserValidator();
-        FriendshipFileRepository friendshipFileRepository = new FriendshipFileRepository(Constants.FRIENDSHIPS_FILENAME, userFileRepository);
+        FriendshipDbRepository friendshipDbRepository = new FriendshipDbRepository(Constants.DATABASE_URL, Constants.DATABASE_USERNAME, Constants.DATABASE_PASSWORD, userDbRepository);
         FriendshipValidator friendshipValidator = new FriendshipValidator();
-        UserService userService = new UserService(userFileRepository, userValidator);
-        FriendshipService friendshipService = new FriendshipService(friendshipFileRepository, friendshipValidator);
+        UserService userService = new UserService(userDbRepository, userValidator);
+        FriendshipService friendshipService = new FriendshipService(friendshipDbRepository, friendshipValidator);
         SuperService superService = new SuperService(userService, friendshipService);
         UserInterface userInterface = new UserInterface(superService);
         userInterface.run();

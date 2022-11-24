@@ -3,6 +3,7 @@ package service;
 import exceptions.RepositoryException;
 import exceptions.ValidationException;
 import model.entities.User;
+import repository.database.UserDbRepository;
 import repository.file.UserFileRepository;
 import validator.UserValidator;
 
@@ -10,16 +11,16 @@ import java.io.IOException;
 import java.util.Collection;
 
 public class UserService {
-    private final UserFileRepository userFileRepository;
+    private final UserDbRepository userDbRepository;
     private final UserValidator userValidator;
 
-    public UserService(UserFileRepository userFileRepository, UserValidator userValidator) {
-        this.userFileRepository = userFileRepository;
+    public UserService(UserDbRepository userDbRepository, UserValidator userValidator) {
+        this.userDbRepository = userDbRepository;
         this.userValidator = userValidator;
     }
 
     private Integer getMaximumId() throws RepositoryException, IOException {
-        Collection<User> users = userFileRepository.getAll();
+        Collection<User> users = userDbRepository.getAll();
         if (users.isEmpty())
             return -1;
         Integer maximumId = 0;
@@ -33,18 +34,18 @@ public class UserService {
         Integer idCounter = getMaximumId() + 1;
         User user = new User(idCounter, firstName, lastName, email);
         userValidator.validate(user);
-        userFileRepository.add(user);
+        userDbRepository.add(user);
     }
 
     public void removeUser(Integer id) throws RepositoryException, IOException {
-        userFileRepository.remove(id);
+        userDbRepository.remove(id);
     }
 
     public User getUser(Integer id) throws RepositoryException, IOException {
-        return userFileRepository.getOne(id);
+        return userDbRepository.getOne(id);
     }
 
     public Collection<User> getUsers() throws RepositoryException, IOException {
-        return userFileRepository.getAll();
+        return userDbRepository.getAll();
     }
 }
