@@ -8,7 +8,6 @@ import utils.Constants;
 import validator.FriendshipValidator;
 import validator.UserValidator;
 
-
 public class Main {
     public static void main(String[] args) {
         UserDbRepository userDbRepository = new UserDbRepository(Constants.DATABASE_URL, Constants.DATABASE_USERNAME, Constants.DATABASE_PASSWORD);
