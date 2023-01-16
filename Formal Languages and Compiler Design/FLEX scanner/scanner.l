@@ -107,7 +107,7 @@ namespace			addToIFP(NAMESPACE, -1);
 std					addToIFP(STD, -1);
 \;					addToIFP(SEMICOLON, -1);
 int					addToIFP(INT, -1);
-float				addToIFP(FLOAT, -1);
+double				addToIFP(DOUBLE, -1);
 main				addToIFP(MAIN, -1);
 \(					addToIFP(LEFT_PARANTHESIS, -1);
 \)					addToIFP(RIGHT_PARANTHESIS, -1);

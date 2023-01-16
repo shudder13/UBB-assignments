@@ -12,7 +12,7 @@
 #define STD 11
 #define SEMICOLON 12
 #define INT 13
-#define FLOAT 14
+#define DOUBLE 14
 #define MAIN 15
 #define LEFT_PARANTHESIS 16
 #define RIGHT_PARANTHESIS 17
