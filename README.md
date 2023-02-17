@@ -124,15 +124,15 @@
   </tr>
   <tr align="center">
     <td><a href="https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem5_MLR5023_ro_dana_2022_6921.pdf"><strong>Formal Languages and Compiler Design</strong></a></td>
-    <td>specifying a programming language, (E)BNF, lexical analysis, finite automata</td>
+    <td>(E)BNF, lexical analysis, finite automatons, regular expressions, grammars, regular and context free grammars, push down automata, syntax analysis, phases of compiler, top down and bottom up parsers, lex/flex, yacc/bison</td>
   </tr>
   <tr align="center">
     <td><a href="https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem5_MLR5077_ro_vniculescu_2022_6808.pdf"><strong>Parallel and Distributed Programming</strong></a></td>
-    <td>parallel/concurrency/distributed programming, processes, threads</td>
+    <td>parallel/concurrency/distributed programming, processes, threads, data race, race condition, deadlock/livelock, synchronization mechanisms, MPI, OpenMP, CUDA, producer-consumer pattern, performance analysis of parallel programs, thread pools</td>
   </tr>
   <tr align="center">
     <td><a href="https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem5_MLR5078_ro_ilazar_2022_6871.pdf"><strong>Mobile Application Programming</strong></a></td>
-    <td>Ionic framework + React library</td>
+    <td>Ionic framework + React library, Kotlin for Android development</td>
   </tr>
   <tr align="center">
     <td><a href="https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem5_MLR5067_ro_lauras_2022_6727.pdf"><strong>Intelligent Methods for Solving Real World Problems</strong></a></td>
