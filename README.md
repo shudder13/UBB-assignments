@@ -39,7 +39,7 @@
     <td>C++, ADTs and DSs (dynamic array, linked list, stack, queue, priority queue, hash table, tree, binary tree, heap, binary heap, binary search tree, AVL tree), complexity, iterators, heapsort</td>
   </tr>
   <tr align="center">
-    <td><a href="https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem2_MLR5006_ro_istvanc_2022_6722.pdf"><strong>Object-Priented Programming</strong></a></td>
+    <td><a href="https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem2_MLR5006_ro_istvanc_2022_6722.pdf"><strong>Object-Oriented Programming</strong></a></td>
     <td>C++, FDD, TDD, layered architecture, UML diagrams, generic programming, polymorphism, inheritance, GUIs - Qt framework, Observer pattern, MVC pattern</td>
   </tr>
   <tr align="center">
@@ -96,7 +96,7 @@
   </tr>
   <tr align="center">
     <td><a href="https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem4_MLR5029_ro_lauras_2022_6728.pdf"><strong>Artificial Intelligence</strong></a></td>
-    <td></td>
+    <td>hill climbing, simulated annealing, tabu search, Girvan-Newman algorithm, evolutionary algorithms, PSO, ACO</td>
   </tr>
   <tr align="center">
     <td><a href="https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem4_MLR5011_ro_vladi_2022_7161.pdf"><strong>Software Engineering</strong></a></td>
@@ -112,7 +112,7 @@
   </tr>
   <tr align="center">
     <td><a href="https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem4_MLR5013_ro_grigo_2022_6735.pdf"><strong>Systems for Design and Implementation</strong></a></td>
-    <td></td>
+    <td>Git, Gradle, Java, C#, Log4j, Spring, Hibernate</td>
   </tr>
 </table>
 
@@ -152,19 +152,19 @@
   </tr>
   <tr align="center">
     <td><a href="https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem6_MLR5014_ro_cretu_2022_6708.pdf"><strong>Software Systems Verification and Validation</strong></a></td>
-    <td></td>
+    <td>quality assurance, quality control, verification, validation, testing, bugs, black/white box testing</td>
   </tr>
   <tr align="center">
-    <td><a href="https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem6_MLR0028_ro_tradu_2022_7294.pdf"><strong>Numerical Computing</strong></a></td>
-    <td></td>
+    <td><a href="https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem6_MLR0028_ro_tradu_2022_7294.pdf"><strong>Numerical Calculus</strong></a></td>
+    <td>MATLAB, Taylor's theorem, Maclaurin series, Padé approximant, floating-point arithmetic and error mitigation</td>
   </tr>
   <tr align="center">
     <td><a href="https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem6_MLR5074_ro_anca_2022_6773.pdf"><strong>Business Intelligence</strong></a></td>
-    <td></td>
+    <td>SQL Server BI</td>
   </tr>
   <tr align="center">
     <td><a href="https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem6_MLR5163_ro_vniculescu_2022_7368.pdf">Multi-paradigm Programming Languages</a></td>
-    <td></td>
+    <td>Scala, functional programming, multi-paradigm programming languages</td>
   </tr>
   <tr align="center">
     <td><a href="https://www.cs.ubbcluj.ro/files/curricula/2022/syllabus/IR_sem6_MLR7007_ro_forest_2022_6973.pdf">History of Computer Science</a></td>
