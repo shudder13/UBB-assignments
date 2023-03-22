@@ -1,0 +1,11 @@
+Build minitranslator:
+bison -d grammar.y
+flex scanner.l
+gcc lex.yy.c grammar.tab.c grammar.tab.h -o analyzer.exe
+
+Run minitranslator:
+analyzer.exe example1.cpp
+
+Run .asm file:
+nasm -f win32 output.asm
+nlink output.obj -lio -o output.exe

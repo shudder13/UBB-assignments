@@ -92,7 +92,7 @@ STRING       		\".*\"
 
 %%
 
-{INTEGER_NUMBER}	addConstant(yytext); yylval = atoi(yytext); return INTEGER;
+{INTEGER_NUMBER}	addConstant(yytext); strcpy(yylval.variableName, yytext); return INTEGER;
 \#					addToIFP(2, -1); return HASH;
 include				addToIFP(3, -1); return INCLUDE;
 \<{2}				addToIFP(4, -1); return TWICE_LESS_THAN;
@@ -118,9 +118,7 @@ cout				addToIFP(21, -1); return COUT;
 \-					addToIFP(24, -1); return MINUS;
 \*					addToIFP(25, -1); return ASTERISK;
 \/					addToIFP(26, -1); return SLASH;
-\%					addToIFP(27, -1); return PERCENT;
-\.					addToIFP(28, -1); return DOT;
-{IDENTIFIER}		addIdentifier(yytext); yylval = strdup(yytext); return IDENTIFIER;
+{IDENTIFIER}		addIdentifier(yytext); strcpy(yylval.variableName, yytext); return IDENTIFIER;
 [ \t\n]+			;
 .					{ fprintf(stderr, "ERROR: Unexpected character!\n"); exit(1); }
 
